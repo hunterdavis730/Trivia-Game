@@ -99,11 +99,11 @@ var showNext = function () {
     if (gameOver) {
         $('.giffy').remove()
         $('#instructions').empty();
-        resetTimer();
+
         console.log(correctAnswer)
         console.log(incorrectAnswer)
-
-
+        gameEnded();
+        resetTimer();
         clearTimeout(intervalEnd)
     } else {
 
@@ -129,14 +129,25 @@ var nextQuestion = function () {
 
 }
 
-var gameOver = function () {
+var gameEnded = function () {
     $('.giffy').remove()
     $('#instructions').empty();
+
+
+
+    var endMessage = $('<h4> Great Job! </h4>').addClass('display-5 text-warning text-center');
+    var correct = $('<p>').text(`You answered ${correctAnswer} question(s) right! `).addClass('text-warning text-center my-0 mt-1')
+    var incorrect = $('<p>').text(`You answered ${incorrectAnswer} question(s) wrong`).addClass('text-warning text-center my-0 mt-1 mb-5')
+    $('#instructions').append(endMessage);
+    $('#instructions').append(correct);
+    $('#instructions').append(incorrect);
+
+    correctAnswer = 0;
+    incorrectAnswer = 0;
+    currentQuestion = 0;
+    $('#start-game').text('Play Again?').removeClass('d-none')
+
     resetTimer();
-    console.log(correctAnswer)
-    console.log(incorrectAnswer)
-
-
     clearTimeout(intervalEnd)
 
 

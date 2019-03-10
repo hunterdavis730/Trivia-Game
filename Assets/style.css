@@ -2,3 +2,15 @@ body {
     background-image: url(Images/jazz-background.jpg);
     background-size: cover;
 }
+
+.answer:hover {
+    background-color: white;
+
+    box-shadow: 10px 10px 5px grey;
+}
+
+.correct:hover {
+    background-color: white;
+
+    box-shadow: 10px 10px 5px grey;
+}
